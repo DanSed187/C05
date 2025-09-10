@@ -1,34 +1,33 @@
 #include <stdio.h>
 
-/*int ft_sqrt(int nb)
+int ft_sqrt(int nb)
 {
-    if(nb )
-}
-*/
-
-int	find_sqrt(int nb, int root, int diff, long square)
-{
-	if (square < nb)
+    if(nb < 0)
 	{
-		root++;
-		diff += 2;
-		square += diff;
-		return (find_sqrt(nb, root, diff, square));
+		return 0;
 	}
-	else if (square == nb)
-		return (root);
-	else
-		return (0);
+	if(nb == 0 || nb == 1)
+	{
+		return nb;
+	}
+	
+	int i;
+	i = 1;
+	while(i * i <= nb)
+	{
+		if(i * i == nb)
+		{
+			return i;
+		}
+		i++;
+	}
+	return 0;
 }
 
-int	ft_sqrt(int nb)
-{
-	return (find_sqrt(nb, 1, 1, 1));
-}
 
 int main() {
     
-    int result = ft_sqrt();
+    int result = ft_sqrt(121);
     
     printf("%d", result);
     return 0;
